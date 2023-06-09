@@ -1,5 +1,4 @@
-﻿
-Console.WriteLine("Enter folder path:");
+﻿Console.WriteLine("Enter folder path:");
 string path = Console.ReadLine();
 DirectoryInfo dirInfo = new DirectoryInfo(path);
 if (dirInfo.Exists)

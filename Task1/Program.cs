@@ -1,5 +1,4 @@
-﻿
-Console.WriteLine("Enter folder path:");
+﻿Console.WriteLine("Enter folder path:");
 string path = Console.ReadLine();
 DirectoryInfo dirInfo = new DirectoryInfo(path);
 if (dirInfo.Exists)
@@ -13,35 +12,32 @@ else
 
 void DisposeUnusedFiles(DirectoryInfo path)
 {
+
     foreach (var directory in path.GetDirectories())
     {
         DisposeUnusedFiles(directory);
-
-        try
+    }
+    try
+    {
+        foreach (var file in path.GetFiles())
         {
-            foreach (var file in directory.GetFiles())
+            if (DateTime.Now - file.LastAccessTime > TimeSpan.FromMinutes(1))
             {
-                if (DateTime.Now - file.LastAccessTime > TimeSpan.FromMinutes(1))
                 {
-                    {
-                        file.Delete();
-                    }
-                }
-            }
-
-            foreach (var dir in directory.GetDirectories())
-            {
-                if (DateTime.Now - dir.LastAccessTime > TimeSpan.FromMinutes(1))
-                {
-                    {
-                        dir.Delete(true);
-                    }
+                    file.Delete();
                 }
             }
         }
-        catch (Exception ex)
+
+        if (DateTime.Now - path.LastAccessTime > TimeSpan.FromMinutes(1))
         {
-            Console.WriteLine(ex);
+            {
+                path.Delete(true);
+            }
         }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex);
     }
 }
