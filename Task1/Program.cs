@@ -16,7 +16,7 @@ void DisposeUnusedFiles(DirectoryInfo path)
     foreach (var directory in path.GetDirectories())
     {
         DisposeUnusedFiles(directory);
-        
+
         try
         {
             foreach (var file in directory.GetFiles())
