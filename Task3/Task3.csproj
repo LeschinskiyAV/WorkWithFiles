@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Task1\Task1.csproj" />
+    <ProjectReference Include="..\Task2\Task2.csproj" />
   </ItemGroup>
 
 </Project>

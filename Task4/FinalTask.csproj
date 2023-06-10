@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Task1\Task1.csproj" />
+    <Compile Remove="Source\**" />
+    <EmbeddedResource Remove="Source\**" />
+    <None Remove="Source\**" />
   </ItemGroup>
 
 </Project>
